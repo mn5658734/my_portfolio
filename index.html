@@ -52,6 +52,61 @@
       position: relative;
     }
 
+    .hero .hero-inner {
+      display: flex;
+      align-items: center;
+      gap: 48px;
+      flex-wrap: wrap;
+    }
+
+    .hero .hero-content {
+      flex: 1;
+      min-width: 280px;
+    }
+
+    .hero .profile-img {
+      width: 200px;
+      height: 200px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--accent);
+      flex-shrink: 0;
+    }
+
+    .scroll-indicator {
+      display: flex;
+      justify-content: center;
+      margin-top: 48px;
+    }
+
+    .scroll-indicator a {
+      color: var(--accent);
+      text-decoration: none;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 8px;
+      font-size: 0.8rem;
+      opacity: 0.8;
+      transition: opacity 0.2s;
+    }
+
+    .scroll-indicator a:hover {
+      opacity: 1;
+    }
+
+    .scroll-indicator svg {
+      width: 28px;
+      height: 28px;
+      animation: bounce 2s infinite;
+    }
+
+    @keyframes bounce {
+      0%, 20%, 50%, 80%, 100% { transform: translateY(0); }
+      40% { transform: translateY(8px); }
+      60% { transform: translateY(4px); }
+    }
+
     .hero::before {
       content: '';
       position: absolute;
@@ -152,15 +207,6 @@
 
     section:first-of-type {
       border-top: none;
-    }
-
-    .section-label {
-      font-family: 'JetBrains Mono', monospace;
-      font-size: 0.75rem;
-      color: var(--accent);
-      text-transform: uppercase;
-      letter-spacing: 0.15em;
-      margin-bottom: 16px;
     }
 
     h2 {
@@ -406,6 +452,15 @@
         padding: 60px 0 40px;
       }
 
+      .hero .hero-inner {
+        flex-direction: column-reverse;
+      }
+
+      .hero .profile-img {
+        width: 160px;
+        height: 160px;
+      }
+
       section {
         padding: 50px 0;
       }
@@ -420,26 +475,38 @@
   <main>
     <header class="hero">
       <div class="container">
-        <h1>Milan Nayak</h1>
-        <p class="tagline">AI Product Leader | Founder | Enterprise Platform Strategist</p>
-        <p class="sub">Building AI-powered products that turn complex systems into scalable, measurable business outcomes.</p>
-        <div class="meta">
-          <span>📍 Bengaluru, India</span>
-          <span>🔗</span>
-          <a href="https://www.linkedin.com/in/milan-nayak-0861b811a" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">LinkedIn</a>
-          <a href="https://github.com/mn5658734" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">GitHub</a>
-          <span>Email</span>
+        <div class="hero-inner">
+          <div class="hero-content">
+            <h1>Milan Nayak</h1>
+            <p class="tagline">AI Product Leader | Founder | Enterprise Platform Strategist</p>
+            <p class="sub">Building AI-powered products that turn complex systems into scalable, measurable business outcomes.</p>
+            <div class="meta">
+              <span>📍 Bengaluru, India</span>
+              <span>🔗</span>
+              <a href="https://www.linkedin.com/in/milan-nayak-0861b811a" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">LinkedIn</a>
+              <a href="https://github.com/mn5658734" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">GitHub</a>
+              <a href="mailto:mn5658734@gmail.com" style="color: var(--accent); text-decoration: none;">Email</a>
+            </div>
+            <div class="cta">
+              <a href="#work" class="btn btn-primary">View My Work</a>
+              <a href="mailto:mn5658734@gmail.com" class="btn btn-secondary">Let's Build AI</a>
+            </div>
+          </div>
+          <img src="profile.jpg" alt="Milan Nayak" class="profile-img">
         </div>
-        <div class="cta">
-          <a href="#work" class="btn btn-primary">View My Work</a>
-          <a href="mailto:contact@milan.dev" class="btn btn-secondary">Let's Build AI</a>
+        <div class="scroll-indicator">
+          <a href="#positioning" aria-label="Scroll down">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M12 5v14M5 12l7 7 7-7"/>
+            </svg>
+            Scroll
+          </a>
         </div>
       </div>
     </header>
 
     <section id="positioning" class="positioning">
       <div class="container">
-        <span class="section-label">01 — Positioning</span>
         <h2>AI-First Product Leader</h2>
         <p>I'm an AI-first Product Leader with 9+ years of experience building enterprise-grade platforms and 0→1 startup products across IAM, Digital Twin, SportsTech, and AI-powered systems.</p>
         <p>I specialize in:</p>
@@ -488,7 +555,6 @@
 
     <section id="work">
       <div class="container">
-        <span class="section-label">03 — AI Product Experience</span>
         <h2>Enterprise AI + Platform Systems</h2>
 
         <div class="exp-block">
@@ -552,7 +618,6 @@
 
     <section>
       <div class="container">
-        <span class="section-label">05 — My AI Product Framework</span>
         <h2>How I Build AI Products</h2>
         <ol class="framework-list">
           <li data-num="1.">Define problem before model</li>
@@ -588,7 +653,6 @@
 
     <section>
       <div class="container">
-        <span class="section-label">07 — What's Next</span>
         <h2>What I'm Building</h2>
         <p style="color: var(--text-muted); margin-bottom: 16px;">I'm focused on:</p>
         <ul style="list-style: none; color: var(--text-muted);">
@@ -603,7 +667,6 @@
 
     <section class="closing">
       <div class="container">
-        <span class="section-label">08 — Closing</span>
         <blockquote>I don't just manage product backlogs. I design decision systems that scale with intelligence.</blockquote>
         <p class="tag">Let's build the next AI-native platform.</p>
         <div class="cta">
@@ -618,6 +681,7 @@
         <div class="links">
           <a href="https://github.com/mn5658734" target="_blank" rel="noopener">GitHub</a>
           <a href="https://www.linkedin.com/in/milan-nayak-0861b811a" target="_blank" rel="noopener">LinkedIn</a>
+          <a href="mailto:mn5658734@gmail.com">Email</a>
         </div>
         <p>Milan Nayak — AI Product Leader | Bengaluru, India</p>
       </div>
