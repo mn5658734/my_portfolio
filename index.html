@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Milan Nayak | AI Product Leader</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg-dark: #0a0e14;
+      --bg-card: #131920;
+      --accent: #00d4aa;
+      --accent-dim: rgba(0, 212, 170, 0.15);
+      --text: #e6edf3;
+      --text-muted: #8b949e;
+      --border: #21262d;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Outfit', sans-serif;
+      background: var(--bg-dark);
+      color: var(--text);
+      line-height: 1.6;
+      overflow-x: hidden;
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 24px;
+    }
+
+    /* Hero */
+    .hero {
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 80px 0 60px;
+      position: relative;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 400px;
+      background: radial-gradient(ellipse 80% 50% at 50% 0%, var(--accent-dim), transparent);
+      pointer-events: none;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.5rem, 6vw, 4rem);
+      font-weight: 700;
+      letter-spacing: -0.02em;
+      margin-bottom: 12px;
+      background: linear-gradient(135deg, var(--text) 0%, var(--text-muted) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    .hero .tagline {
+      font-size: 1.25rem;
+      color: var(--accent);
+      font-weight: 500;
+      margin-bottom: 8px;
+    }
+
+    .hero .sub {
+      font-size: 1rem;
+      color: var(--text-muted);
+      margin-bottom: 32px;
+      max-width: 560px;
+    }
+
+    .hero .meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 40px;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .hero .meta span {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .hero .cta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 16px;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 14px 28px;
+      font-family: inherit;
+      font-size: 1rem;
+      font-weight: 500;
+      text-decoration: none;
+      border-radius: 8px;
+      transition: all 0.2s ease;
+      cursor: pointer;
+    }
+
+    .btn-primary {
+      background: var(--accent);
+      color: var(--bg-dark);
+      border: none;
+    }
+
+    .btn-primary:hover {
+      background: #00e6b8;
+      transform: translateY(-2px);
+    }
+
+    .btn-secondary {
+      background: transparent;
+      color: var(--accent);
+      border: 2px solid var(--accent);
+    }
+
+    .btn-secondary:hover {
+      background: var(--accent-dim);
+    }
+
+    /* Sections */
+    section {
+      padding: 80px 0;
+      border-top: 1px solid var(--border);
+    }
+
+    section:first-of-type {
+      border-top: none;
+    }
+
+    .section-label {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.75rem;
+      color: var(--accent);
+      text-transform: uppercase;
+      letter-spacing: 0.15em;
+      margin-bottom: 16px;
+    }
+
+    h2 {
+      font-size: 1.75rem;
+      font-weight: 600;
+      margin-bottom: 24px;
+      letter-spacing: -0.01em;
+    }
+
+    .positioning p {
+      font-size: 1.1rem;
+      color: var(--text-muted);
+      margin-bottom: 20px;
+      max-width: 700px;
+    }
+
+    .positioning ul {
+      list-style: none;
+      margin-top: 20px;
+    }
+
+    .positioning li {
+      padding: 12px 0;
+      padding-left: 24px;
+      position: relative;
+      color: var(--text-muted);
+    }
+
+    .positioning li::before {
+      content: '→';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Impact grid */
+    .impact-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+      gap: 16px;
+      margin-top: 24px;
+    }
+
+    .impact-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 24px;
+      transition: border-color 0.2s, transform 0.2s;
+    }
+
+    .impact-card:hover {
+      border-color: var(--accent);
+      transform: translateY(-2px);
+    }
+
+    .impact-card .icon {
+      font-size: 1.5rem;
+      margin-bottom: 12px;
+    }
+
+    .impact-card p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    /* Experience blocks */
+    .exp-block {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-radius: 12px;
+      padding: 28px;
+      margin-bottom: 20px;
+    }
+
+    .exp-block h3 {
+      font-size: 1.2rem;
+      font-weight: 600;
+      margin-bottom: 8px;
+      color: var(--accent);
+    }
+
+    .exp-block .subtitle {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      margin-bottom: 16px;
+    }
+
+    .exp-block p {
+      font-size: 0.95rem;
+      color: var(--text-muted);
+      margin-bottom: 12px;
+    }
+
+    .exp-block ul {
+      list-style: none;
+      margin-top: 12px;
+    }
+
+    .exp-block li {
+      padding: 6px 0;
+      padding-left: 20px;
+      position: relative;
+      font-size: 0.95rem;
+      color: var(--text-muted);
+    }
+
+    .exp-block li::before {
+      content: '•';
+      position: absolute;
+      left: 0;
+      color: var(--accent);
+    }
+
+    .focus-tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 16px;
+    }
+
+    .focus-tags span {
+      font-size: 0.8rem;
+      padding: 6px 12px;
+      background: var(--accent-dim);
+      color: var(--accent);
+      border-radius: 6px;
+      font-family: 'JetBrains Mono', monospace;
+    }
+
+    /* Framework list */
+    .framework-list {
+      list-style: none;
+    }
+
+    .framework-list li {
+      padding: 16px 0;
+      padding-left: 32px;
+      position: relative;
+      border-bottom: 1px solid var(--border);
+      color: var(--text-muted);
+    }
+
+    .framework-list li:last-child {
+      border-bottom: none;
+    }
+
+    .framework-list li::before {
+      content: attr(data-num);
+      position: absolute;
+      left: 0;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 500;
+      color: var(--accent);
+      font-size: 0.9rem;
+    }
+
+    /* Skills */
+    .skills-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+      gap: 24px;
+      margin-top: 24px;
+    }
+
+    .skill-category h4 {
+      font-size: 1rem;
+      font-weight: 600;
+      margin-bottom: 12px;
+      color: var(--text);
+    }
+
+    .skill-category p {
+      font-size: 0.9rem;
+      color: var(--text-muted);
+      line-height: 1.7;
+    }
+
+    /* Links */
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 24px;
+      align-items: center;
+      margin-top: 24px;
+    }
+
+    .links a {
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 500;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: color 0.2s;
+    }
+
+    .links a:hover {
+      color: #00e6b8;
+    }
+
+    /* Closing */
+    .closing {
+      text-align: center;
+      padding: 100px 0;
+    }
+
+    .closing blockquote {
+      font-size: 1.5rem;
+      font-weight: 500;
+      line-height: 1.5;
+      max-width: 600px;
+      margin: 0 auto 24px;
+      color: var(--text);
+    }
+
+    .closing .tag {
+      font-size: 1rem;
+      color: var(--accent);
+      margin-bottom: 32px;
+    }
+
+    /* Footer */
+    footer {
+      padding: 40px 0;
+      border-top: 1px solid var(--border);
+      text-align: center;
+    }
+
+    footer .links {
+      justify-content: center;
+      margin-bottom: 16px;
+    }
+
+    footer p {
+      font-size: 0.85rem;
+      color: var(--text-muted);
+    }
+
+    @media (max-width: 600px) {
+      .hero {
+        padding: 60px 0 40px;
+      }
+
+      section {
+        padding: 50px 0;
+      }
+
+      .impact-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <header class="hero">
+      <div class="container">
+        <h1>Milan Nayak</h1>
+        <p class="tagline">AI Product Leader | Founder | Enterprise Platform Strategist</p>
+        <p class="sub">Building AI-powered products that turn complex systems into scalable, measurable business outcomes.</p>
+        <div class="meta">
+          <span>📍 Bengaluru, India</span>
+          <span>🔗</span>
+          <a href="https://www.linkedin.com/in/milan-nayak-0861b811a" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">LinkedIn</a>
+          <a href="https://github.com/mn5658734" target="_blank" rel="noopener" style="color: var(--accent); text-decoration: none;">GitHub</a>
+          <span>Email</span>
+        </div>
+        <div class="cta">
+          <a href="#work" class="btn btn-primary">View My Work</a>
+          <a href="mailto:contact@milan.dev" class="btn btn-secondary">Let's Build AI</a>
+        </div>
+      </div>
+    </header>
+
+    <section id="positioning" class="positioning">
+      <div class="container">
+        <span class="section-label">01 — Positioning</span>
+        <h2>AI-First Product Leader</h2>
+        <p>I'm an AI-first Product Leader with 9+ years of experience building enterprise-grade platforms and 0→1 startup products across IAM, Digital Twin, SportsTech, and AI-powered systems.</p>
+        <p>I specialize in:</p>
+        <ul>
+          <li>AI workflow design (LLMs, Agentic systems, Human-in-the-Loop)</li>
+          <li>Enterprise identity & security platforms (350K+ users)</li>
+          <li>Data-driven product growth (7X MRR scaling)</li>
+          <li>0→1 product architecture & GTM execution</li>
+        </ul>
+        <p><strong>I build products where AI enhances decision velocity, not just features.</strong></p>
+      </div>
+    </section>
+
+    <section id="impact">
+      <div class="container">
+        <span class="section-label">02 — Impact</span>
+        <h2>Credibility Snapshot</h2>
+        <div class="impact-grid">
+          <div class="impact-card">
+            <span class="icon">🔐</span>
+            <p>Built IAM platform serving 350K+ enterprise users</p>
+          </div>
+          <div class="impact-card">
+            <span class="icon">📈</span>
+            <p>Scaled EdTech MRR from ₹8L → ₹57L in 6 months</p>
+          </div>
+          <div class="impact-card">
+            <span class="icon">🤖</span>
+            <p>Built AI-powered hiring platform (NextMind)</p>
+          </div>
+          <div class="impact-card">
+            <span class="icon">🏗</span>
+            <p>Designed Digital Twin platform with IoT telemetry integration</p>
+          </div>
+          <div class="impact-card">
+            <span class="icon">🏏</span>
+            <p>Built SportsTech marketplace MVP (750+ beta users)</p>
+          </div>
+          <div class="impact-card">
+            <span class="icon">⚙</span>
+            <p>Reduced reconciliation failure rate in high-volume payment systems</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="work">
+      <div class="container">
+        <span class="section-label">03 — AI Product Experience</span>
+        <h2>Enterprise AI + Platform Systems</h2>
+
+        <div class="exp-block">
+          <h3>IAM Platform (BFSI)</h3>
+          <p class="subtitle">Designed RBAC compliance workflows, identity orchestration, audit logging, and security governance integrating AWS Cognito + LDAP.</p>
+          <div class="focus-tags">
+            <span>Platform scalability</span>
+            <span>Security architecture</span>
+            <span>Regulatory compliance</span>
+            <span>Observability & monitoring</span>
+          </div>
+        </div>
+
+        <div class="exp-block">
+          <h3>Digital Twin (FMCG)</h3>
+          <p class="subtitle">Built simulation layer for manufacturing processes. Integrated IoT telemetry with Azure Data Explorer for anomaly detection.</p>
+          <div class="focus-tags">
+            <span>Real-time data ingestion</span>
+            <span>Predictive analytics</span>
+            <span>Decision automation</span>
+          </div>
+        </div>
+
+        <div class="exp-block">
+          <h3>NextMind — AI Hiring Platform</h3>
+          <p class="subtitle">AI-based resume matching + recruiter workflow automation.</p>
+          <ul>
+            <li>Scoring engine logic</li>
+            <li>Human-in-loop validation</li>
+            <li>AI-assisted shortlisting flow</li>
+            <li>Recruiter dashboard</li>
+          </ul>
+          <div class="focus-tags">
+            <span>AI workflow design</span>
+            <span>Accuracy optimization</span>
+            <span>Confidence scoring</span>
+            <span>Feedback loop training</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">04 — Founder Builds</span>
+        <h2>SportsTrade — Athlete Investment Marketplace</h2>
+        <div class="exp-block">
+          <p class="subtitle">Designed a stock-market-style trading system for athlete performance-based investment.</p>
+          <ul>
+            <li>Trading mechanics</li>
+            <li>Performance scoring model</li>
+            <li>Growth loops</li>
+            <li>Monetization structure</li>
+          </ul>
+          <p style="margin-top: 16px;">Demonstrates: Financial modeling, Marketplace design, Tokenization logic, Behavioral incentive systems.</p>
+        </div>
+        <p style="color: var(--text-muted); margin-top: 24px;"><strong>Other experiments:</strong> Sportyfy.io (NFT sports collectibles), C4Cook (3K+ users), AI-driven HRTech products.</p>
+        <p style="color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-top: 12px;">Ship → Validate → Iterate → Scale</p>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">05 — My AI Product Framework</span>
+        <h2>How I Build AI Products</h2>
+        <ol class="framework-list">
+          <li data-num="1.">Define problem before model</li>
+          <li data-num="2.">Use RAG over fine-tuning when possible</li>
+          <li data-num="3.">Design guardrails before automation</li>
+          <li data-num="4.">Embed Human-in-the-Loop validation</li>
+          <li data-num="5.">Measure AI performance separately from product metrics</li>
+          <li data-num="6.">Ship MVP → Optimize → Expand automation autonomy</li>
+        </ol>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">06 — Skills</span>
+        <h2>Curated for AI PM Roles</h2>
+        <div class="skills-grid">
+          <div class="skill-category">
+            <h4>Product Strategy</h4>
+            <p>0→1 Build | PRDs | Roadmaps | GTM | OKRs | Agile | Stakeholder Leadership</p>
+          </div>
+          <div class="skill-category">
+            <h4>AI & Data</h4>
+            <p>LLMs | Agentic AI | RAG Systems | IoT Analytics | SQL | Amplitude | A/B Testing</p>
+          </div>
+          <div class="skill-category">
+            <h4>Cloud & Platform</h4>
+            <p>AWS | Azure | IAM | OIDC | RBAC | CI/CD | Observability</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <span class="section-label">07 — What's Next</span>
+        <h2>What I'm Building</h2>
+        <p style="color: var(--text-muted); margin-bottom: 16px;">I'm focused on:</p>
+        <ul style="list-style: none; color: var(--text-muted);">
+          <li>• AI-native enterprise tools</li>
+          <li>• AI workflow orchestration platforms</li>
+          <li>• AI-powered decision systems</li>
+          <li>• Sports + AI ecosystems</li>
+        </ul>
+        <p style="color: var(--text-muted); margin-top: 24px;">Looking to collaborate with: AI-first startups, Enterprise AI transformation teams, Founders building scalable systems.</p>
+      </div>
+    </section>
+
+    <section class="closing">
+      <div class="container">
+        <span class="section-label">08 — Closing</span>
+        <blockquote>I don't just manage product backlogs. I design decision systems that scale with intelligence.</blockquote>
+        <p class="tag">Let's build the next AI-native platform.</p>
+        <div class="cta">
+          <a href="https://github.com/mn5658734" target="_blank" rel="noopener" class="btn btn-primary">View GitHub</a>
+          <a href="https://www.linkedin.com/in/milan-nayak-0861b811a" target="_blank" rel="noopener" class="btn btn-secondary">Connect on LinkedIn</a>
+        </div>
+      </div>
+    </section>
+
+    <footer>
+      <div class="container">
+        <div class="links">
+          <a href="https://github.com/mn5658734" target="_blank" rel="noopener">GitHub</a>
+          <a href="https://www.linkedin.com/in/milan-nayak-0861b811a" target="_blank" rel="noopener">LinkedIn</a>
+        </div>
+        <p>Milan Nayak — AI Product Leader | Bengaluru, India</p>
+      </div>
+    </footer>
+  </main>
+</body>
+</html>
