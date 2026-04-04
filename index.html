@@ -243,37 +243,6 @@
       font-family: 'JetBrains Mono', monospace;
     }
 
-    /* Impact grid */
-    .impact-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-      margin-top: 24px;
-    }
-
-    .impact-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: 12px;
-      padding: 24px;
-      transition: border-color 0.2s, transform 0.2s;
-    }
-
-    .impact-card:hover {
-      border-color: var(--accent);
-      transform: translateY(-2px);
-    }
-
-    .impact-card .icon {
-      font-size: 1.5rem;
-      margin-bottom: 12px;
-    }
-
-    .impact-card p {
-      font-size: 0.95rem;
-      color: var(--text-muted);
-    }
-
     /* Experience blocks */
     .exp-block {
       background: var(--bg-card);
@@ -365,27 +334,6 @@
       font-size: 0.9rem;
     }
 
-    /* Skills */
-    .skills-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-      gap: 24px;
-      margin-top: 24px;
-    }
-
-    .skill-category h4 {
-      font-size: 1rem;
-      font-weight: 600;
-      margin-bottom: 12px;
-      color: var(--text);
-    }
-
-    .skill-category p {
-      font-size: 0.9rem;
-      color: var(--text-muted);
-      line-height: 1.7;
-    }
-
     /* Links */
     .links {
       display: flex;
@@ -464,10 +412,6 @@
       section {
         padding: 50px 0;
       }
-
-      .impact-grid {
-        grid-template-columns: 1fr;
-      }
     }
   </style>
 </head>
@@ -520,39 +464,6 @@
       </div>
     </section>
 
-    <section id="impact">
-      <div class="container">
-        <span class="section-label">02 — Impact</span>
-        <h2>Credibility Snapshot</h2>
-        <div class="impact-grid">
-          <div class="impact-card">
-            <span class="icon">🔐</span>
-            <p>Built IAM platform serving 350K+ enterprise users</p>
-          </div>
-          <div class="impact-card">
-            <span class="icon">📈</span>
-            <p>Scaled EdTech MRR from ₹8L → ₹57L in 6 months</p>
-          </div>
-          <div class="impact-card">
-            <span class="icon">🤖</span>
-            <p>Built AI-powered hiring platform (NextMind)</p>
-          </div>
-          <div class="impact-card">
-            <span class="icon">🏗</span>
-            <p>Designed Digital Twin platform with IoT telemetry integration</p>
-          </div>
-          <div class="impact-card">
-            <span class="icon">🏏</span>
-            <p>Built SportsTech marketplace MVP (750+ beta users)</p>
-          </div>
-          <div class="impact-card">
-            <span class="icon">⚙</span>
-            <p>Reduced reconciliation failure rate in high-volume payment systems</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section id="work">
       <div class="container">
         <h2>Enterprise AI + Platform Systems</h2>
@@ -599,25 +510,6 @@
 
     <section>
       <div class="container">
-        <span class="section-label">04 — Founder Builds</span>
-        <h2>SportsTrade — Athlete Investment Marketplace</h2>
-        <div class="exp-block">
-          <p class="subtitle">Designed a stock-market-style trading system for athlete performance-based investment.</p>
-          <ul>
-            <li>Trading mechanics</li>
-            <li>Performance scoring model</li>
-            <li>Growth loops</li>
-            <li>Monetization structure</li>
-          </ul>
-          <p style="margin-top: 16px;">Demonstrates: Financial modeling, Marketplace design, Tokenization logic, Behavioral incentive systems.</p>
-        </div>
-        <p style="color: var(--text-muted); margin-top: 24px;"><strong>Other experiments:</strong> Sportyfy.io (NFT sports collectibles), C4Cook (3K+ users), AI-driven HRTech products.</p>
-        <p style="color: var(--accent); font-family: 'JetBrains Mono', monospace; margin-top: 12px;">Ship → Validate → Iterate → Scale</p>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
         <h2>How I Build AI Products</h2>
         <ol class="framework-list">
           <li data-num="1.">Define problem before model</li>
@@ -627,27 +519,6 @@
           <li data-num="5.">Measure AI performance separately from product metrics</li>
           <li data-num="6.">Ship MVP → Optimize → Expand automation autonomy</li>
         </ol>
-      </div>
-    </section>
-
-    <section>
-      <div class="container">
-        <span class="section-label">06 — Skills</span>
-        <h2>Curated for AI PM Roles</h2>
-        <div class="skills-grid">
-          <div class="skill-category">
-            <h4>Product Strategy</h4>
-            <p>0→1 Build | PRDs | Roadmaps | GTM | OKRs | Agile | Stakeholder Leadership</p>
-          </div>
-          <div class="skill-category">
-            <h4>AI & Data</h4>
-            <p>LLMs | Agentic AI | RAG Systems | IoT Analytics | SQL | Amplitude | A/B Testing</p>
-          </div>
-          <div class="skill-category">
-            <h4>Cloud & Platform</h4>
-            <p>AWS | Azure | IAM | OIDC | RBAC | CI/CD | Observability</p>
-          </div>
-        </div>
       </div>
     </section>
 

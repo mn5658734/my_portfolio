@@ -1,18 +1,22 @@
 #!/bin/bash
-# Run this script in your system Terminal (outside Cursor) to push to GitHub
-# Cursor's git wrapper adds --trailer which isn't supported by older Git versions
+# Use macOS Terminal.app (or iTerm), NOT Cursor's terminal, so git isn't wrapped.
+# Apple Git 2.24.x errors on: unknown option `trailer` — that's Cursor adding --trailer to commits.
 
+set -e
 cd "$(dirname "$0")"
+GIT="/usr/bin/git"
 
-# Remove Cursor's wrapper by using full path to git
-GIT_CMD="/usr/bin/git"
+"$GIT" add -A
+if ! "$GIT" diff --cached --quiet; then
+  "$GIT" commit -m "Update portfolio"
+else
+  echo "No new changes to commit."
+fi
 
-$GIT_CMD add .
-$GIT_CMD commit -m "Initial commit: Milan Nayak portfolio website"
-$GIT_CMD branch -M main
-$GIT_CMD remote add origin https://github.com/mn5658734/my_portfolio.git 2>/dev/null || $GIT_CMD remote set-url origin https://github.com/mn5658734/my_portfolio.git
-$GIT_CMD push -u origin main
+"$GIT" branch -M main
+"$GIT" remote add origin https://github.com/mn5658734/my_portfolio.git 2>/dev/null \
+  || "$GIT" remote set-url origin https://github.com/mn5658734/my_portfolio.git
 
-echo ""
-echo "Done! Your portfolio is live at: https://mn5658734.github.io/my_portfolio/"
-echo "(Enable GitHub Pages in repo Settings > Pages if you want it hosted)"
+echo "Pushing to origin..."
+"$GIT" push -u origin main
+echo "Done: https://github.com/mn5658734/my_portfolio"
