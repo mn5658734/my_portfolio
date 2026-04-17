@@ -334,6 +334,55 @@
       font-size: 0.9rem;
     }
 
+    /* GitHub projects cards */
+    .projects-intro {
+      color: var(--text-muted);
+      max-width: 680px;
+      margin-bottom: 20px;
+    }
+
+    .projects-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 16px;
+    }
+
+    .project-card {
+      display: block;
+      background: linear-gradient(155deg, #101b16 0%, #10161e 100%);
+      border: 1px solid rgba(0, 212, 170, 0.22);
+      border-radius: 12px;
+      padding: 20px;
+      text-decoration: none;
+      color: var(--text);
+      transition: transform 0.2s ease, border-color 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: 0 8px 24px rgba(0, 0, 0, 0.25);
+    }
+
+    .project-card:hover {
+      transform: translateY(-3px);
+      border-color: rgba(0, 212, 170, 0.55);
+      box-shadow: 0 12px 28px rgba(0, 0, 0, 0.35);
+    }
+
+    .project-card h3 {
+      font-size: 1.05rem;
+      margin-bottom: 10px;
+      color: #64ffd8;
+    }
+
+    .project-card p {
+      color: var(--text-muted);
+      font-size: 0.92rem;
+      margin-bottom: 14px;
+    }
+
+    .project-link {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 0.82rem;
+      color: var(--accent);
+    }
+
     /* Links */
     .links {
       display: flex;
@@ -505,6 +554,45 @@
             <span>Guardrails</span>
             <span>HITL workflows</span>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects">
+      <div class="container">
+        <h2>Other Projects from GitHub</h2>
+        <p class="projects-intro">A few recent builds across SportsTech, AI workflows, and digital products.</p>
+        <div class="projects-grid">
+          <a class="project-card" href="https://github.com/mn5658734/AthleteDataCompany" target="_blank" rel="noopener">
+            <h3>AthleteDataCompany</h3>
+            <p>Marketplace connecting grassroots athletes with brands for sponsorship and discovery.</p>
+            <span class="project-link">View on GitHub →</span>
+          </a>
+          <a class="project-card" href="https://github.com/mn5658734/KhoKhoIndia" target="_blank" rel="noopener">
+            <h3>KhoKhoIndia</h3>
+            <p>Official website initiative for Kho Kho federation with modern sports-focused UX.</p>
+            <span class="project-link">View on GitHub →</span>
+          </a>
+          <a class="project-card" href="https://github.com/mn5658734/HirePro" target="_blank" rel="noopener">
+            <h3>HirePro</h3>
+            <p>Workforce and hiring workflows with product-led automation and scalable platform design.</p>
+            <span class="project-link">View on GitHub →</span>
+          </a>
+          <a class="project-card" href="https://github.com/mn5658734/SmartHelp" target="_blank" rel="noopener">
+            <h3>SmartHelp</h3>
+            <p>AI-based ticketing software focused on faster issue triage and support resolution.</p>
+            <span class="project-link">View on GitHub →</span>
+          </a>
+          <a class="project-card" href="https://github.com/mn5658734/DRIP" target="_blank" rel="noopener">
+            <h3>DRIP</h3>
+            <p>Digital wardrobe concept blending consumer utility with sleek product interactions.</p>
+            <span class="project-link">View on GitHub →</span>
+          </a>
+          <a class="project-card" href="https://github.com/mn5658734/epithera" target="_blank" rel="noopener">
+            <h3>epithera</h3>
+            <p>Skin health tracking application designed around actionable user insights.</p>
+            <span class="project-link">View on GitHub →</span>
+          </a>
         </div>
       </div>
     </section>
