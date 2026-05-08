@@ -448,6 +448,43 @@
       color: var(--text-muted);
     }
 
+    /* Page visit badge — fixed right, compact */
+    .visit-badge {
+      position: fixed;
+      right: 12px;
+      top: 50%;
+      transform: translateY(-50%);
+      z-index: 999;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      font-size: 11px;
+      line-height: 1.2;
+      color: var(--text-muted);
+      background: rgba(19, 25, 32, 0.94);
+      border: 1px solid var(--border);
+      border-radius: 999px;
+      box-shadow: 0 2px 14px rgba(0, 0, 0, 0.3);
+      font-family: 'JetBrains Mono', monospace;
+      pointer-events: none;
+      -webkit-backdrop-filter: blur(6px);
+      backdrop-filter: blur(6px);
+    }
+
+    .visit-badge__icon {
+      width: 13px;
+      height: 13px;
+      flex-shrink: 0;
+      color: var(--accent);
+    }
+
+    .visit-badge__count {
+      color: var(--accent);
+      font-weight: 500;
+      font-variant-numeric: tabular-nums;
+    }
+
     @media (max-width: 600px) {
       .hero {
         padding: 60px 0 40px;
@@ -464,6 +501,20 @@
 
       section {
         padding: 50px 0;
+      }
+
+      .visit-badge {
+        top: auto;
+        bottom: 20px;
+        transform: none;
+        right: 10px;
+        font-size: 10px;
+        padding: 5px 9px;
+      }
+
+      .visit-badge__icon {
+        width: 12px;
+        height: 12px;
       }
     }
   </style>
@@ -653,5 +704,32 @@
       </div>
     </footer>
   </main>
+
+  <div class="visit-badge" role="status" aria-live="polite" title="Page visits (approx.)">
+    <svg class="visit-badge__icon" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+      <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/>
+      <circle cx="12" cy="12" r="3"/>
+    </svg>
+    <span class="visit-badge__count" id="visit-count">…</span>
+  </div>
+
+  <script>
+    (function () {
+      var el = document.getElementById('visit-count');
+      if (!el) return;
+      fetch('https://api.countapi.xyz/hit/mn5658734/portfolio_visits')
+        .then(function (r) { return r.json(); })
+        .then(function (data) {
+          if (data && typeof data.value === 'number') {
+            el.textContent = data.value.toLocaleString();
+          } else {
+            el.textContent = '—';
+          }
+        })
+        .catch(function () {
+          el.textContent = '—';
+        });
+    })();
+  </script>
 </body>
 </html>
